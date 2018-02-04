@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proudly presented by ECharts</title>
+    {% for jsfile_name in script_list %}
+        <script src="{{ host }}/{{ jsfile_name }}.js"></script>
+    {% endfor %}
+</head>
+
+<body>
+  <div id="{{ chart_id }}" style="width:{{ my_width }}px;height:{{ my_height }}px;"></div>
+    <script type="text/javascript">
+        var myChart_{{ chart_id }} = echarts.init(document.getElementById('{{ chart_id }}'));
+        var option_{{ chart_id }} = {{ my_option|safe }};
+        myChart_{{ chart_id }}.setOption(option_{{ chart_id }});
+    </script>
+</body>
+
+</html>
